@@ -24,22 +24,32 @@ public class Jdom {
             //获得根节点
             Element project = doc.getRootElement();
             //获得根节点下的节点数据
-            List<Element> list =project.getChildren();
+            List<Element> dependenciesList =project.getChildren();
             Element dependencies = null;
-
-            for (int i=0;i<list.size();i++){
-                if (list.get(i).getName().equals("dependencies")){
-                    dependencies = list.get(i);
+            Element dependency =null;
+            for (int i=0;i<dependenciesList.size();i++){
+                if (dependenciesList.get(i).getName().equals("dependencies")){
+                    dependencies = dependenciesList.get(i);
                 }
             }
-            List<Element> elements = dependencies.getChildren();
-            for (int i=0;i<elements.size();i++){
-                Element e =elements.get(i);
-                String groupId = e.getChildText("groupId");
-                String artifactId= e.getChildText("artifactId");
-                String version = e.getChildText("version");
-                String scope = e.getChildText("scope");
-                pro.add(new Dependency(groupId,artifactId,version,scope));
+            List<Element> dependencyList = dependencies.getChildren();
+            for (int i=0;i<dependencyList.size();i++){
+                dependency=dependencyList.get(i);
+                List<Element> elements =dependency.getChildren();
+                for (int j=0;j<elements.size();j++){
+                    Element element = elements.get(j);
+                    Dependency dep = new Dependency();
+                    if (element.getName().equals("groupId")){
+                        dep.setGroupId(element.getText());
+                    }else if(element.getName().equals("artifactId")){
+                        dep.setArtifactId(element.getText());
+                    }else if(element.getName().equals("version")){
+                        dep.setVersion(element.getText());
+                    }else if(element.getName().equals("scope")){
+                        dep.setScope(element.getText());
+                    }
+                    pro.add(dep);
+                }
             }
             System.out.println(pro.getDependencies());
         } catch (JDOMException e) {
