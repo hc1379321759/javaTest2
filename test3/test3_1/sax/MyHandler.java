@@ -3,7 +3,7 @@ package test3.test3_1.sax;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import test3.test3_1.Dependency;
+import test3.Dependency;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,8 +4,8 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import test3.test3_1.Dependency;
-import test3.test3_1.Project;
+import test3.Dependency;
+import test3.Project;
 
 import java.io.File;
 import java.util.Iterator;

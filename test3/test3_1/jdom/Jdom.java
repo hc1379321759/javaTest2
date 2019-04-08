@@ -4,8 +4,8 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import test3.test3_1.Dependency;
-import test3.test3_1.Project;
+import test3.Dependency;
+import test3.Project;
 
 import java.io.IOException;
 import java.util.List;

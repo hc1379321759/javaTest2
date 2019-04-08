@@ -1,8 +1,8 @@
 package test3.test3_1.sax;
 
 import org.xml.sax.SAXException;
-import test3.test3_1.Dependency;
-import test3.test3_1.Project;
+import test3.Dependency;
+import test3.Project;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
